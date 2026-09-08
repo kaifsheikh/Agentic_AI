@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Assistant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Marked.js for Markdown rendering with fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .message-content p { margin-bottom: 0.5rem; }
+        .message-content p:last-child { margin-bottom: 0; }
+        .message-content ul { list-style-type: disc; margin-left: 1.25rem; margin-bottom: 0.5rem; }
+        .message-content ol { list-style-type: decimal; margin-left: 1.25rem; margin-bottom: 0.5rem; }
+        .message-content code { background-color: rgba(0, 0, 0, 0.2); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; }
+        .message-content pre { background-color: #1e293b; color: #e2e8f0; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+        .message-content pre code { background-color: transparent; padding: 0; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 h-screen flex flex-col font-sans overflow-hidden">
+
+    <!-- Top Header -->
+    <header class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-3">
+            <div class="bg-indigo-600 p-2.5 rounded-xl shadow-lg shadow-indigo-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-robot text-white text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                    Agentic AI Assistant 
+                    <span class="text-xs px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full font-medium">Online</span>
+                </h1>
+                <p class="text-xs text-slate-400">Roman Urdu Local Agent (Files, System, Automation, Email)</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button id="clearBtn" title="Clear Memory & Start New Session" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-lg text-xs font-medium transition border border-slate-700 shadow-sm active:scale-95">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>Naya Session (Clear)</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Chat Container -->
+    <main class="flex-1 overflow-y-auto px-4 md:px-8 py-6 space-y-6 max-w-4xl w-full mx-auto" id="chatContainer">
+        <!-- Welcome Message -->
+        <div class="flex items-start space-x-3">
+            <div class="bg-indigo-600 text-white rounded-full h-9 w-9 flex items-center justify-center flex-shrink-0 shadow-md">
+                <i class="fa-solid fa-robot text-sm"></i>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 max-w-[85%] shadow-sm text-slate-200">
+                <p class="font-medium text-indigo-400 text-xs mb-1">Agentic AI</p>
+                <div class="message-content text-sm leading-relaxed">
+                    Assalam-o-Alaikum! Main aapka autonomous Agentic AI hoon. Aap mujhse file management, system commands, mouse/keyboard automation, ya email search ke bare mein kuch bhi keh sakte hain. Roman Urdu mein baat karein!
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Typing Indicator (Hidden by default) -->
+    <div id="typingIndicator" class="hidden px-4 md:px-8 max-w-4xl w-full mx-auto pb-2">
+        <div class="flex items-center space-x-3">
+            <div class="bg-indigo-600 text-white rounded-full h-9 w-9 flex items-center justify-center flex-shrink-0 shadow-md">
+                <i class="fa-solid fa-robot text-sm"></i>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl px-4 py-3 shadow-sm text-slate-400 text-xs flex items-center space-x-2">
+                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce"></span>
+                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                <span class="pl-2">Agent soch raha hai aur kaam kar raha hai...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Input Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 p-4 shadow-lg">
+        <div class="max-w-4xl mx-auto flex items-center gap-3">
+            <textarea id="userInput" rows="1" placeholder="Yahan apna sawal ya task likhein (e.g., Desktop par test.txt banao)..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none max-h-32 shadow-inner"></textarea>
+            <button id="sendBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3 rounded-xl font-medium text-sm transition flex items-center justify-center shadow-lg shadow-indigo-600/30 active:scale-95 flex-shrink-0">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="max-w-4xl mx-auto mt-2 text-center">
+            <p class="text-[11px] text-slate-500">Agentic AI can execute local system actions. Use responsibly.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Chat Interaction -->
+    <script>
+        let threadId = "user-session-" + Math.random().toString(36).substring(2, 9);
+        const chatContainer = document.getElementById('chatContainer');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        // Auto resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Send message on Enter (Shift+Enter for newline)
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        sendBtn.addEventListener('click', sendMessage);
+
+        clearBtn.addEventListener('click', async function() {
+            try {
+                const res = await fetch('/api/clear', { method: 'POST' });
+                const data = await res.json();
+                threadId = data.thread_id;
+                chatContainer.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-indigo-600 text-white rounded-full h-9 w-9 flex items-center justify-center flex-shrink-0 shadow-md">
+                            <i class="fa-solid fa-robot text-sm"></i>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 max-w-[85%] shadow-sm text-slate-200">
+                            <p class="font-medium text-indigo-400 text-xs mb-1">Agentic AI</p>
+                            <div class="message-content text-sm leading-relaxed">
+                                Memory clear ho gayi hai. Naya session shuru ho gaya hai!
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } catch (err) {
+                alert('Session clear karne mein error aayi.');
+            }
+        });
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // Append user message
+            appendMessage(text, 'user');
+            userInput.value = '';
+            userInput.style.height = 'auto';
+            scrollToBottom();
+
+            // Show typing indicator
+            typingIndicator.classList.remove('hidden');
+            scrollToBottom();
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text, thread_id: threadId })
+                });
+                const data = await res.json();
+
+                typingIndicator.classList.add('hidden');
+
+                if (res.ok) {
+                    appendMessage(data.response, 'assistant');
+                } else {
+                    appendMessage("Error: " + (data.error || "Kuch galat ho gaya."), 'assistant');
+                }
+            } catch (err) {
+                typingIndicator.classList.add('hidden');
+                appendMessage("Network error: Server se rabta nahi ho saka.", 'assistant');
+            }
+            scrollToBottom();
+        }
+
+        function appendMessage(text, sender) {
+            const isUser = sender === 'user';
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-start space-x-3 ${isUser ? 'flex-row-reverse space-x-reverse' : ''}`;
+
+            const avatarBg = isUser ? 'bg-emerald-600' : 'bg-indigo-600';
+            const icon = isUser ? 'fa-user' : 'fa-robot';
+            const bubbleBg = isUser ? 'bg-indigo-600/20 border-indigo-500/30 text-indigo-100' : 'bg-slate-900 border-slate-800 text-slate-200';
+            const senderName = isUser ? 'Aap' : 'Agentic AI';
+            const senderColor = isUser ? 'text-emerald-400' : 'text-indigo-400';
+
+            let formattedContent = '';
+            if (isUser) {
+                formattedContent = escapeHtml(text);
+            } else {
+                if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+                    try {
+                        formattedContent = marked.parse(text);
+                    } catch (e) {
+                        formattedContent = escapeHtml(text).replace(/\n/g, '<br>');
+                    }
+                } else {
+                    formattedContent = escapeHtml(text).replace(/\n/g, '<br>');
+                }
+            }
+
+            messageDiv.innerHTML = `
+                <div class="${avatarBg} text-white rounded-full h-9 w-9 flex items-center justify-center flex-shrink-0 shadow-md">
+                    <i class="fa-solid ${icon} text-sm"></i>
+                </div>
+                <div class="${bubbleBg} border rounded-2xl px-5 py-4 max-w-[85%] shadow-sm">
+                    <p class="font-medium ${senderColor} text-xs mb-1">${senderName}</p>
+                    <div class="message-content text-sm leading-relaxed">
+                        ${formattedContent}
+                    </div>
+                </div>
+            `;
+
+            chatContainer.appendChild(messageDiv);
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                 .replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+        }
+
+        function scrollToBottom() {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>
