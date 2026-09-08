@@ -33,6 +33,12 @@ Language Instructions:
 - Hamesha Roman Urdu (Latin script) mein jawab do.
 - Devanagari (Hindi) script use mat karo.
 - Example: "Aapki file ban gayi hai" likho, "आपकी फाइल बन गई है" mat likho.
+
+Email Reading Capability:
+- Aap user ke email inbox se emails search kar sakte ho.
+- Jab user kisi naam, subject, ya keyword se email dhoondhne ko kahe, to 'search_emails' tool use karo.
+- Query ko natural language mein accept karo aur tool ko sahi query do.
+- Sirf read kar sakte ho, send nahi.
 """
 
 tools = get_all_tools()
