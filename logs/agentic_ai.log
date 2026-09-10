@@ -210,3 +210,89 @@ During task with name 'model' and id '890932bf-85f3-300c-0e2f-02d8592b12fe'
 2026-09-10 12:26:08,849 - app - INFO - Cleared session, new thread_id: 7d41e82e-251b-4ef0-81c0-a03eaf782308
 2026-09-10 12:26:08,850 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:26:08] "POST /api/clear HTTP/1.1" 200 -
 2026-09-10 12:26:08,850 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:26:08] "POST /api/clear HTTP/1.1" 200 -
+2026-09-10 12:34:35,670 - app - INFO - Logging configured.
+2026-09-10 12:34:35,670 - app - INFO - Starting Agentic AI Web Server...
+2026-09-10 12:34:36,279 - app - INFO - Agent initialized with 34 tools.
+2026-09-10 12:34:36,281 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-10 12:34:36,287 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-10 12:34:36,287 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-10 12:34:36,288 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-10 12:34:36,288 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-10 12:34:42,524 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:34:42] "GET / HTTP/1.1" 200 -
+2026-09-10 12:34:42,524 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:34:42] "GET / HTTP/1.1" 200 -
+2026-09-10 12:34:57,498 - app - INFO - Streaming message for thread user-session-u30leuf: desktop per kitne files hai?...
+2026-09-10 12:34:58,178 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:34:58,848 - tools.file_ops.file_ops - INFO - Tool 'list_folder_files' executed successfully.
+2026-09-10 12:34:58,919 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:34:58,920 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2026-09-10 12:35:05,467 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:35:05,843 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:35:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:35:05,843 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:35:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:35:28,259 - app - INFO - Streaming message for thread user-session-u30leuf: my_server.bat isa open karo...
+2026-09-10 12:35:28,628 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:35:29,308 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:35:29,309 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 17.000000 seconds
+2026-09-10 12:35:46,657 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:35:47,094 - tools.system.system - INFO - Executing command: start "" "C:\Users\DELL5420\Desktop\my_server.bat"
+2026-09-10 12:35:47,500 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:35:47,501 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 17.000000 seconds
+2026-09-10 12:36:04,904 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:36:05,600 - tools.system.system - INFO - Executing command: start -FilePath "C:\Users\DELL5420\Desktop\my_server.bat"
+2026-09-10 12:36:05,912 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:36:05,913 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 27.000000 seconds
+2026-09-10 12:36:33,484 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:36:33,800 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:36:33] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:36:33,800 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:36:33] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:37:08,833 - app - INFO - Streaming message for thread user-session-u30leuf: deepseek open karo chrome mein oisa first chat open karo meri....
+2026-09-10 12:37:09,194 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:37:09,748 - tools.system.system - INFO - Executing command: start "" "chrome" "https://www.deepseek.com/chat"
+2026-09-10 12:37:10,302 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:37:10,303 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 28.000000 seconds
+2026-09-10 12:37:38,658 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:37:39,204 - tools.system.system - INFO - Executing command: start "chrome" "https://www.deepseek.com/chat"
+2026-09-10 12:37:39,744 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:37:39,934 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:37:39] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:37:39,934 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:37:39] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:38:00,682 - app - INFO - Streaming message for thread user-session-u30leuf: 404 error aya hai...
+2026-09-10 12:38:00,798 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:38:00,799 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2026-09-10 12:38:07,152 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:38:07,658 - tools.system.system - INFO - Executing command: start "chrome" "https://chat.deepseek.com/"
+2026-09-10 12:38:07,987 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:38:07,989 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 30.000000 seconds
+2026-09-10 12:38:38,122 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:38:38,123 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 8.000000 seconds
+2026-09-10 12:38:46,506 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:38:46,726 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:38:46] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:38:46,726 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:38:46] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:39:19,985 - app - INFO - Streaming message for thread user-session-u30leuf: ab deepseek ki first chat open karo Agentic AI ka naam se hai deepseek mein meri...
+2026-09-10 12:39:21,407 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:39:21,976 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:39:21] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:39:21,976 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:39:21] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:39:52,414 - app - INFO - Streaming message for thread user-session-u30leuf: ID kis terha ki hoti hai thora batao muje?...
+2026-09-10 12:39:53,008 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:39:53,362 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:39:53] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:39:53,362 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:39:53] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:40:09,013 - app - INFO - Streaming message for thread user-session-u30leuf: a4933308-100a-4c86-ae0e-859866933d3e...
+2026-09-10 12:40:10,219 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:40:10,221 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 21.000000 seconds
+2026-09-10 12:40:31,571 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:40:32,115 - tools.system.system - INFO - Executing command: start "chrome" "https://chat.deepseek.com/chat/a4933308-100a-4c86-ae0e-859866933d3e"
+2026-09-10 12:40:32,477 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:40:32,478 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 4.000000 seconds
+2026-09-10 12:40:37,013 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:40:37,516 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:40:37] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:40:37,516 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:40:37] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:40:55,932 - app - INFO - Streaming message for thread user-session-u30leuf: s/a4933308-100a-4c86-ae0e-859866933d3e...
+2026-09-10 12:40:56,050 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:40:56,052 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 21.000000 seconds
+2026-09-10 12:41:17,200 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:41:17,201 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+2026-09-10 12:41:20,616 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-10 12:41:21,293 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:41:21] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:41:21,293 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2026 12:41:21] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-10 12:41:35,415 - app - INFO - Streaming message for thread user-session-u30leuf: exit...
+2026-09-10 12:41:35,597 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-10 12:41:35,599 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 25.000000 seconds

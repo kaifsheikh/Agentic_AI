@@ -18,6 +18,8 @@
         .message-content code { background-color: rgba(0, 0, 0, 0.2); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; }
         .message-content pre { background-color: #1e293b; color: #e2e8f0; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; margin-top: 0.5rem; margin-bottom: 0.5rem; }
         .message-content pre code { background-color: transparent; padding: 0; }
+        .cursor-blink::after { content: "\258C"; display: inline-block; margin-left: 1px; animation: blink 1s step-start infinite; color: #818cf8; }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 h-screen flex flex-col font-sans overflow-hidden">
@@ -60,7 +62,7 @@
         </div>
     </main>
 
-    <!-- Typing Indicator (Hidden by default) -->
+    <!-- Typing Indicator (Hidden by default; only shown before the first token arrives) -->
     <div id="typingIndicator" class="hidden px-4 md:px-8 max-w-4xl w-full mx-auto pb-2">
         <div class="flex items-center space-x-3">
             <div class="bg-indigo-600 text-white rounded-full h-9 w-9 flex items-center justify-center flex-shrink-0 shadow-md">
@@ -146,29 +148,80 @@
             userInput.style.height = 'auto';
             scrollToBottom();
 
-            // Show typing indicator
+            // Show typing indicator until the first token arrives
             typingIndicator.classList.remove('hidden');
             scrollToBottom();
 
+            // Create an empty assistant bubble that we fill in as tokens stream in
+            const contentEl = createAssistantBubble();
+            let accumulated = '';
+            let gotAnyToken = false;
+            contentEl.classList.add('cursor-blink');
+
             try {
-                const res = await fetch('/api/chat', {
+                const res = await fetch('/api/chat/stream', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: text, thread_id: threadId })
                 });
-                const data = await res.json();
 
-                typingIndicator.classList.add('hidden');
+                if (!res.ok || !res.body) {
+                    throw new Error('Stream request failed with status ' + res.status);
+                }
 
-                if (res.ok) {
-                    appendMessage(data.response, 'assistant');
-                } else {
-                    appendMessage("Error: " + (data.error || "Kuch galat ho gaya."), 'assistant');
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+                    buffer += decoder.decode(value, { stream: true });
+
+                    // SSE events are separated by a blank line ("\n\n")
+                    const events = buffer.split('\n\n');
+                    buffer = events.pop(); // keep the last (possibly incomplete) event
+
+                    for (const evt of events) {
+                        const line = evt.trim();
+                        if (!line.startsWith('data:')) continue;
+                        const jsonStr = line.slice(5).trim();
+                        if (!jsonStr) continue;
+
+                        let parsed;
+                        try {
+                            parsed = JSON.parse(jsonStr);
+                        } catch (e) {
+                            continue; // ignore malformed chunks
+                        }
+
+                        if (parsed.token) {
+                            if (!gotAnyToken) {
+                                gotAnyToken = true;
+                                typingIndicator.classList.add('hidden');
+                            }
+                            accumulated += parsed.token;
+                            renderAssistantContent(contentEl, accumulated);
+                            scrollToBottom();
+                        } else if (parsed.error) {
+                            accumulated = "Error: " + parsed.error;
+                            renderAssistantContent(contentEl, accumulated);
+                        }
+                        // parsed.done just marks stream completion; nothing else to do
+                    }
+                }
+
+                if (!gotAnyToken) {
+                    renderAssistantContent(contentEl, "Koi response nahi mila.");
                 }
             } catch (err) {
-                typingIndicator.classList.add('hidden');
-                appendMessage("Network error: Server se rabta nahi ho saka.", 'assistant');
+                if (!gotAnyToken) {
+                    renderAssistantContent(contentEl, "Network error: Server se rabta nahi ho saka.");
+                }
             }
+
+            contentEl.classList.remove('cursor-blink');
+            typingIndicator.classList.add('hidden');
             scrollToBottom();
         }
 
@@ -187,15 +240,7 @@
             if (isUser) {
                 formattedContent = escapeHtml(text);
             } else {
-                if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
-                    try {
-                        formattedContent = marked.parse(text);
-                    } catch (e) {
-                        formattedContent = escapeHtml(text).replace(/\n/g, '<br>');
-                    }
-                } else {
-                    formattedContent = escapeHtml(text).replace(/\n/g, '<br>');
-                }
+                formattedContent = renderMarkdown(text);
             }
 
             messageDiv.innerHTML = `
@@ -211,6 +256,39 @@
             `;
 
             chatContainer.appendChild(messageDiv);
+        }
+
+        // Creates an empty assistant bubble (used for streaming) and returns
+        // the inner .message-content element to be filled in as tokens arrive.
+        function createAssistantBubble() {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start space-x-3';
+            messageDiv.innerHTML = `
+                <div class="bg-indigo-600 text-white rounded-full h-9 w-9 flex items-center justify-center flex-shrink-0 shadow-md">
+                    <i class="fa-solid fa-robot text-sm"></i>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 max-w-[85%] shadow-sm text-slate-200">
+                    <p class="font-medium text-indigo-400 text-xs mb-1">Agentic AI</p>
+                    <div class="message-content text-sm leading-relaxed"></div>
+                </div>
+            `;
+            chatContainer.appendChild(messageDiv);
+            return messageDiv.querySelector('.message-content');
+        }
+
+        function renderAssistantContent(contentEl, text) {
+            contentEl.innerHTML = renderMarkdown(text);
+        }
+
+        function renderMarkdown(text) {
+            if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+                try {
+                    return marked.parse(text);
+                } catch (e) {
+                    // fall through to plain escaped text
+                }
+            }
+            return escapeHtml(text).replace(/\n/g, '<br>');
         }
 
         function escapeHtml(unsafe) {

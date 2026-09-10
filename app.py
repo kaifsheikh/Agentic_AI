@@ -1,50 +1,15 @@
 import os
+import json
 import logging
 from logging.handlers import RotatingFileHandler
-from typing import Optional, Dict, Any
+from typing import Optional
 import uuid
-import getpass
-import platform
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, Response, stream_with_context
 from flask_cors import CORS  # optional, install with: pip install flask-cors
-from dotenv import load_dotenv
 
-from langchain_groq import ChatGroq
-from langchain.agents import create_agent
-from langgraph.checkpoint.memory import MemorySaver
-
-from tools import get_all_tools
-
-# Load environment variables
-load_dotenv()
-
-# ============================================================
-# Configuration
-# ============================================================
-class Config:
-    DEBUG = os.getenv("FLASK_DEBUG", "False").lower() == "true"
-    HOST = os.getenv("FLASK_HOST", "127.0.0.1")
-    PORT = int(os.getenv("FLASK_PORT", "5000"))
-    SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-me")
-    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-    GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
-    TEMPERATURE = float(os.getenv("TEMPERATURE", "0"))
-    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
-
-    # Paths
-    LOG_DIR = os.path.join(os.getcwd(), "logs")
-    LOG_FILE = os.path.join(LOG_DIR, "agentic_ai.log")
-
-    # CORS (optional)
-    CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")  # change in production
-
-    # Ensure log directory exists
-    os.makedirs(LOG_DIR, exist_ok=True)
-
-    # Validate API key
-    if not GROQ_API_KEY:
-        raise ValueError("GROQ_API_KEY environment variable not set. Please check .env file.")
+from config import Config
+from agent_factory import build_agent, get_system_info
 
 # ============================================================
 # Logging Setup
@@ -52,12 +17,11 @@ class Config:
 def setup_logging(app: Flask) -> None:
     """Configure logging for the application."""
     log_level = getattr(logging, Config.LOG_LEVEL, logging.INFO)
-    
-    # Create formatter
+
     formatter = logging.Formatter(
         "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     )
-    
+
     # File handler (rotating)
     file_handler = RotatingFileHandler(
         Config.LOG_FILE,
@@ -66,25 +30,25 @@ def setup_logging(app: Flask) -> None:
     )
     file_handler.setLevel(log_level)
     file_handler.setFormatter(formatter)
-    
+
     # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setLevel(log_level)
     console_handler.setFormatter(formatter)
-    
+
     # Root logger
     root_logger = logging.getLogger()
     root_logger.setLevel(log_level)
     root_logger.addHandler(file_handler)
     root_logger.addHandler(console_handler)
-    
+
     # Werkzeug logger (Flask's built-in) also use our handlers
     werkzeug_logger = logging.getLogger("werkzeug")
     werkzeug_logger.handlers = []
     werkzeug_logger.addHandler(file_handler)
     werkzeug_logger.addHandler(console_handler)
     werkzeug_logger.setLevel(log_level)
-    
+
     app.logger.info("Logging configured.")
 
 # ============================================================
@@ -102,74 +66,10 @@ setup_logging(app)
 app.logger.info("Starting Agentic AI Web Server...")
 
 # ============================================================
-# System Information
+# System Info + Agent (built once at startup, shared across requests)
 # ============================================================
-def get_system_info() -> Dict[str, str]:
-    username = getpass.getuser()
-    os_name = platform.system()
-    if os_name == "Windows":
-        user_home = f"C:/Users/{username}"
-    else:
-        user_home = f"/Users/{username}"
-    return {
-        "os": os_name,
-        "username": username,
-        "home": user_home,
-        "desktop": os.path.join(user_home, "Desktop")
-    }
-
 system_info = get_system_info()
-
-# ============================================================
-# System Prompt
-# ============================================================
-system_prompt = f"""
-Tum ek autonomous Agentic AI ho jo user ke system par local execution kar raha hai.
-
-System Information:
-- OS: {system_info['os']}
-- Current Username: {system_info['username']}
-- User Home Directory: {system_info['home']}
-- Desktop Path: {system_info['desktop']}
-- Agentic_ai Folder: {system_info['desktop']}/Agentic_ai
-
-CRITICAL TOOL RULES:
-1. Jab bhi kisi folder ki files list karni ho, hamesha poora path do.
-   Example: list_folder_files(folder_path="Desktop/Agentic_ai")
-2. Kabhi bhi tool ko bina required arguments ke call mat karo.
-3. Agar user ne path nahi bataya, to Desktop ya Agentic_ai folder assume karo.
-4. Har tool call ke baad result check karo, error aaye to user ko batao.
-
-Language Instructions:
-- Hamesha Roman Urdu (Latin script) mein jawab do.
-- Devanagari (Hindi) script use mat karo.
-- Example: "Aapki file ban gayi hai" likho.
-
-Email Capability:
-- Aap user ke emails search kar sakte ho 'search_emails' tool se.
-- Query natural language mein accept karo.
-- Sirf read kar sakte ho, send nahi.
-"""
-
-# ============================================================
-# Load Tools and Initialize Agent
-# ============================================================
-tools = get_all_tools()
-
-llm = ChatGroq(
-    api_key=Config.GROQ_API_KEY,
-    model=Config.GROQ_MODEL,
-    temperature=Config.TEMPERATURE
-)
-
-memory = MemorySaver()
-
-agent_app = create_agent(
-    llm,
-    tools,
-    system_prompt=system_prompt,
-    checkpointer=memory
-)
+llm, tools, agent_app = build_agent()
 
 app.logger.info(f"Agent initialized with {len(tools)} tools.")
 
@@ -209,7 +109,7 @@ def health():
 @app.route("/api/chat", methods=["POST"])
 def chat():
     """
-    Handle chat requests.
+    Handle chat requests (non-streaming, returns the full final answer at once).
     Expected JSON: {"message": "...", "thread_id": "optional"}
     """
     try:
@@ -241,6 +141,61 @@ def chat():
     except Exception as e:
         app.logger.error(f"Error in /api/chat: {e}", exc_info=True)
         return jsonify({"status": "error", "error": "Internal server error"}), 500
+
+@app.route("/api/chat/stream", methods=["POST"])
+def chat_stream():
+    """
+    Handle chat requests with token-by-token streaming via Server-Sent Events.
+    Expected JSON: {"message": "...", "thread_id": "optional"}
+
+    Emits a sequence of:
+      data: {"token": "..."}\\n\\n
+    followed by a final:
+      data: {"done": true, "thread_id": "..."}\\n\\n
+    (or a {"error": "..."} event if something goes wrong mid-stream).
+    """
+    data = request.get_json(silent=True)
+    if not data:
+        return jsonify({"status": "error", "error": "Invalid JSON payload"}), 400
+
+    user_message = data.get("message", "").strip()
+    thread_id = validate_thread_id(data.get("thread_id"))
+
+    if not user_message:
+        return jsonify({"status": "error", "error": "Message cannot be empty"}), 400
+
+    if len(user_message) > 5000:
+        return jsonify({"status": "error", "error": "Message too long (max 5000 chars)"}), 400
+
+    thread_config = {"configurable": {"thread_id": thread_id}}
+    inputs = {"messages": [("user", user_message)]}
+
+    def generate():
+        app.logger.info(f"Streaming message for thread {thread_id}: {user_message[:100]}...")
+        try:
+            # stream_mode="messages" yields (message_chunk, metadata) pairs as the
+            # underlying model generates tokens, across every node in the graph.
+            for message_chunk, metadata in agent_app.stream(
+                inputs, config=thread_config, stream_mode="messages"
+            ):
+                content = getattr(message_chunk, "content", "")
+                # Skip chunks coming from the "tools" node (tool call/results) so
+                # only the model's actual answer text is streamed to the user.
+                if content and metadata.get("langgraph_node") != "tools":
+                    yield f"data: {json.dumps({'token': content}, ensure_ascii=False)}\n\n"
+            yield f"data: {json.dumps({'done': True, 'thread_id': thread_id})}\n\n"
+        except Exception as e:
+            app.logger.error(f"Error in /api/chat/stream: {e}", exc_info=True)
+            yield f"data: {json.dumps({'error': 'Internal server error'})}\n\n"
+
+    return Response(
+        stream_with_context(generate()),
+        mimetype="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",  # disable nginx buffering if ever deployed behind it
+        },
+    )
 
 @app.route("/api/clear", methods=["POST"])
 def clear_session():
@@ -274,4 +229,6 @@ if __name__ == "__main__":
         from waitress import serve
         serve(app, host=Config.HOST, port=Config.PORT)
     else:
-        app.run(debug=Config.DEBUG, host=Config.HOST, port=Config.PORT)
+        # threaded=True so a streaming response doesn't block other requests
+        # (e.g. /api/health) while the dev server is in use.
+        app.run(debug=Config.DEBUG, host=Config.HOST, port=Config.PORT, threaded=True)
