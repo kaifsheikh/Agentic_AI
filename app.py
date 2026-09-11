@@ -10,6 +10,7 @@ from flask_cors import CORS  # optional, install with: pip install flask-cors
 
 from config import Config
 from agent_factory import build_agent, get_system_info
+from llm_factory import get_active_model_name
 
 # ============================================================
 # Logging Setup
@@ -71,7 +72,10 @@ app.logger.info("Starting Agentic AI Web Server...")
 system_info = get_system_info()
 llm, tools, agent_app = build_agent()
 
-app.logger.info(f"Agent initialized with {len(tools)} tools.")
+app.logger.info(
+    f"Agent initialized with {len(tools)} tools "
+    f"(provider={Config.LLM_PROVIDER}, model={get_active_model_name()})"
+)
 
 # ============================================================
 # Helper Functions
@@ -101,7 +105,8 @@ def health():
     """Health check endpoint."""
     return jsonify({
         "status": "healthy",
-        "model": Config.GROQ_MODEL,
+        "provider": Config.LLM_PROVIDER,
+        "model": get_active_model_name(),
         "os": system_info["os"],
         "tools_count": len(tools)
     })
@@ -140,7 +145,13 @@ def chat():
         })
     except Exception as e:
         app.logger.error(f"Error in /api/chat: {e}", exc_info=True)
-        return jsonify({"status": "error", "error": "Internal server error"}), 500
+        import traceback
+        return jsonify({
+            "status": "error",
+            "error": str(e),
+            "error_type": type(e).__name__,
+            "traceback": traceback.format_exc()
+        }), 500
 
 @app.route("/api/chat/stream", methods=["POST"])
 def chat_stream():
@@ -186,7 +197,8 @@ def chat_stream():
             yield f"data: {json.dumps({'done': True, 'thread_id': thread_id})}\n\n"
         except Exception as e:
             app.logger.error(f"Error in /api/chat/stream: {e}", exc_info=True)
-            yield f"data: {json.dumps({'error': 'Internal server error'})}\n\n"
+            import traceback
+            yield f"data: {json.dumps({'error': str(e), 'error_type': type(e).__name__, 'traceback': traceback.format_exc()})}\n\n"
 
     return Response(
         stream_with_context(generate()),
