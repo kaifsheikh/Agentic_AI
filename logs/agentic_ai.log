@@ -2471,3 +2471,39 @@ groq.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large 
 During task with name 'model' and id '3af7daaa-e1e2-2f7a-577d-e3385d159610'
 2026-09-11 12:49:10,056 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 12:49:10] "POST /api/chat/stream HTTP/1.1" 200 -
 2026-09-11 12:49:10,056 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 12:49:10] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-11 13:04:10,678 - app - INFO - Logging configured.
+2026-09-11 13:04:10,679 - app - INFO - Starting Agentic AI Web Server...
+2026-09-11 13:04:11,236 - app - INFO - Agent initialized with 34 tools (provider=groq, model=openai/gpt-oss-120b)
+2026-09-11 13:04:11,238 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-11 13:04:11,248 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-11 13:04:11,248 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-11 13:04:11,249 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-11 13:04:11,249 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-11 13:04:24,130 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:04:24] "GET / HTTP/1.1" 200 -
+2026-09-11 13:04:24,130 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:04:24] "GET / HTTP/1.1" 200 -
+2026-09-11 13:04:25,724 - app - INFO - Cleared session, new thread_id: 1969fa18-ef6c-46b9-8bfa-cf3a16b0f29f
+2026-09-11 13:04:25,748 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:04:25] "POST /api/clear HTTP/1.1" 200 -
+2026-09-11 13:04:25,748 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:04:25] "POST /api/clear HTTP/1.1" 200 -
+2026-09-11 13:04:27,858 - app - INFO - Streaming message for thread 1969fa18-ef6c-46b9-8bfa-cf3a16b0f29f: hi...
+2026-09-11 13:04:28,298 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:04:28,740 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:04:28] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-11 13:04:28,740 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:04:28] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-11 13:05:02,826 - app - INFO - Streaming message for thread 1969fa18-ef6c-46b9-8bfa-cf3a16b0f29f: scraping folder open karo vs code mein desktop per hai....
+2026-09-11 13:05:03,851 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:05:04,765 - tools.system.system - INFO - Executing command: code "C:/Users/DELL5420/Desktop/scraping"
+2026-09-11 13:05:07,545 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:05:07,734 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:05:07] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-11 13:05:07,734 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:05:07] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-11 13:05:26,552 - app - INFO - Streaming message for thread 1969fa18-ef6c-46b9-8bfa-cf3a16b0f29f: ab close kardu sirf scraping ko...
+2026-09-11 13:05:26,957 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:05:27,450 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-11 13:05:27,451 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 22.000000 seconds
+2026-09-11 13:05:49,794 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:05:50,685 - tools.system.system - INFO - Executing command: code --reuse-window "C:/Users/DELL5420/Desktop"
+2026-09-11 13:05:53,549 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:05:54,444 - tools.system.system - INFO - Executing command: code --close-window
+2026-09-11 13:05:57,423 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 13:05:58,265 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:05:58] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-11 13:05:58,265 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:05:58] "POST /api/chat/stream HTTP/1.1" 200 -

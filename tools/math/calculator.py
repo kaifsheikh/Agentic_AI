@@ -1,20 +1,18 @@
 import json
 import logging
 import functools
-from typing import Any
 from langchain_core.tools import tool
 from tools.utils import _safe_eval_expr
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+
 
 # ============================================================
 # Helper Decorator for Error Handling
 # ============================================================
 def _handle_errors(func):
     """Standard error handling for calculator tool."""
-    @functools.wraps(func)  # Preserves original signature so @tool builds a correct schema
+    @functools.wraps(func)
     def wrapper(*args, **kwargs):
         try:
             result = func(*args, **kwargs)
@@ -29,6 +27,7 @@ def _handle_errors(func):
             logger.error(f"Unexpected error: {e}")
             return json.dumps({"status": "error", "error": str(e), "error_type": "unknown"})
     return wrapper
+
 
 # ============================================================
 # Main Tool
@@ -47,7 +46,6 @@ def calculate(expression: str) -> dict:
     Returns:
     A dictionary with 'result' (the evaluated number) on success.
     """
-    # Validate input
     if not isinstance(expression, str):
         raise ValueError("Expression must be a string.")
     expression = expression.strip()
@@ -56,16 +54,11 @@ def calculate(expression: str) -> dict:
     if len(expression) > 200:
         raise ValueError("Expression too long (max 200 characters).")
 
-    # Evaluate using the safe evaluator
     result = _safe_eval_expr(expression)
 
-    # Convert result to a JSON-serializable type if needed
-    if isinstance(result, (int, float)):
-        # Ensure no complex numbers or unsupported types
-        if isinstance(result, complex):
-            raise ValueError("Complex numbers are not supported.")
-        return {"result": result}
-    else:
+    if isinstance(result, complex):
+        raise ValueError("Complex numbers are not supported.")
+    if not isinstance(result, (int, float)):
         raise ValueError(f"Unexpected result type: {type(result).__name__}")
 
-    # Note: _safe_eval_expr should already raise exceptions on invalid expressions.
+    return {"result": result}

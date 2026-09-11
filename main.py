@@ -1,6 +1,10 @@
+import logging
 import uuid
 
 from agent_factory import build_agent
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 
 
 def run_terminal():
@@ -29,11 +33,17 @@ def run_terminal():
         if user_input.strip() == "":
             continue
 
-        inputs = {"messages": [("user", user_input)]}
-        response = agent_app.invoke(inputs, config=config)
-
-        final_message = response["messages"][-1].content
-        print(f"\n[Final Answer]: {final_message}")
+        # FIX: previously there was no error handling here at all — any
+        # exception from agent_app.invoke() (bad tool call, provider
+        # timeout, etc.) would crash the whole terminal session.
+        try:
+            inputs = {"messages": [("user", user_input)]}
+            response = agent_app.invoke(inputs, config=config)
+            final_message = response["messages"][-1].content
+            print(f"\n[Final Answer]: {final_message}")
+        except Exception as e:
+            logger.error(f"Error while processing input: {e}", exc_info=True)
+            print(f"\n[Error]: Kuch galat ho gaya, dobara try karein. ({type(e).__name__})")
 
 
 if __name__ == "__main__":

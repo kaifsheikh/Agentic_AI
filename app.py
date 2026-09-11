@@ -82,14 +82,23 @@ app.logger.info(
 # ============================================================
 def validate_thread_id(thread_id: Optional[str]) -> str:
     """Validate and sanitize thread_id."""
+    default = "user-session-default"
     if not thread_id or not isinstance(thread_id, str):
-        return "user-session-default"
-    # Limit length and remove any path separators to prevent injection
+        return default
+
     thread_id = thread_id.strip()
     if len(thread_id) > 100:
         thread_id = thread_id[:100]
     # Replace any characters that could cause issues in file paths
     thread_id = "".join(c for c in thread_id if c.isalnum() or c in "-_")
+
+    # FIX: previously the emptiness check ran BEFORE stripping invalid
+    # characters, so an input made entirely of disallowed characters
+    # (e.g. only emoji/symbols) slipped through as an empty string
+    # instead of falling back to the default.
+    if not thread_id:
+        return default
+
     return thread_id
 
 # ============================================================
@@ -121,36 +130,36 @@ def chat():
         data = request.get_json(silent=True)
         if not data:
             return jsonify({"status": "error", "error": "Invalid JSON payload"}), 400
-        
+
         user_message = data.get("message", "").strip()
         thread_id = validate_thread_id(data.get("thread_id"))
-        
+
         if not user_message:
             return jsonify({"status": "error", "error": "Message cannot be empty"}), 400
-        
+
         if len(user_message) > 5000:
             return jsonify({"status": "error", "error": "Message too long (max 5000 chars)"}), 400
-        
+
         config = {"configurable": {"thread_id": thread_id}}
         inputs = {"messages": [("user", user_message)]}
-        
+
         app.logger.info(f"Processing message for thread {thread_id}: {user_message[:100]}...")
         response = agent_app.invoke(inputs, config=config)
         final_message = response["messages"][-1].content
-        
+
         return jsonify({
             "status": "success",
             "response": final_message,
             "thread_id": thread_id
         })
     except Exception as e:
+        # SECURITY FIX: log the full traceback server-side only. Returning
+        # str(e)/traceback.format_exc() to the client leaks internal file
+        # paths and implementation details to whoever calls this endpoint.
         app.logger.error(f"Error in /api/chat: {e}", exc_info=True)
-        import traceback
         return jsonify({
             "status": "error",
-            "error": str(e),
-            "error_type": type(e).__name__,
-            "traceback": traceback.format_exc()
+            "error": "Internal server error while processing your message."
         }), 500
 
 @app.route("/api/chat/stream", methods=["POST"])
@@ -184,21 +193,17 @@ def chat_stream():
     def generate():
         app.logger.info(f"Streaming message for thread {thread_id}: {user_message[:100]}...")
         try:
-            # stream_mode="messages" yields (message_chunk, metadata) pairs as the
-            # underlying model generates tokens, across every node in the graph.
             for message_chunk, metadata in agent_app.stream(
                 inputs, config=thread_config, stream_mode="messages"
             ):
                 content = getattr(message_chunk, "content", "")
-                # Skip chunks coming from the "tools" node (tool call/results) so
-                # only the model's actual answer text is streamed to the user.
                 if content and metadata.get("langgraph_node") != "tools":
                     yield f"data: {json.dumps({'token': content}, ensure_ascii=False)}\n\n"
             yield f"data: {json.dumps({'done': True, 'thread_id': thread_id})}\n\n"
         except Exception as e:
+            # SECURITY FIX: same as /api/chat — no traceback to the client.
             app.logger.error(f"Error in /api/chat/stream: {e}", exc_info=True)
-            import traceback
-            yield f"data: {json.dumps({'error': str(e), 'error_type': type(e).__name__, 'traceback': traceback.format_exc()})}\n\n"
+            yield f"data: {json.dumps({'error': 'Internal server error while streaming the response.'})}\n\n"
 
     return Response(
         stream_with_context(generate()),

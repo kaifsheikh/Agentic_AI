@@ -18,11 +18,16 @@ def get_system_info() -> Dict[str, str]:
     username = getpass.getuser()
     os_name = platform.system()
     user_home = f"C:/Users/{username}" if os_name == "Windows" else f"/Users/{username}"
+    desktop = f"{user_home}/Desktop"
     return {
         "os": os_name,
         "username": username,
         "home": user_home,
-        "desktop": f"{user_home}/Desktop",
+        "desktop": desktop,
+        # FIX: this now matches the tools' actual default project path
+        # (tools/file_ops/file_ops.py -> list_folder_files default), which
+        # is Desktop/python/Agentic_AI, not Desktop/Agentic_ai.
+        "agentic_ai_folder": f"{desktop}/python/Agentic_AI",
     }
 
 
@@ -36,7 +41,7 @@ System Information:
 - Current Username: {info['username']}
 - User Home Directory: {info['home']}
 - Desktop Path: {info['desktop']}
-- Agentic_ai Folder: {info['desktop']}/Agentic_ai
+- Agentic_ai Folder: {info['agentic_ai_folder']}
 
 CRITICAL TOOL RULES:
 1. Jab bhi kisi folder ki files list karni ho, hamesha poora path do.
