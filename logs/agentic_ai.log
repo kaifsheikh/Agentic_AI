@@ -2507,3 +2507,979 @@ During task with name 'model' and id '3af7daaa-e1e2-2f7a-577d-e3385d159610'
 2026-09-11 13:05:57,423 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-09-11 13:05:58,265 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:05:58] "POST /api/chat/stream HTTP/1.1" 200 -
 2026-09-11 13:05:58,265 - werkzeug - INFO - 127.0.0.1 - - [11/Sep/2026 13:05:58] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:19:55,170 - app - INFO - Logging configured.
+2026-09-14 15:19:55,171 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:19:55,760 - app - INFO - Agent initialized with 34 tools (provider=groq, model=openai/gpt-oss-120b)
+2026-09-14 15:19:55,761 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-14 15:19:55,783 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:19:55,783 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:19:55,784 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:19:55,784 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:20:06,185 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:06] "GET / HTTP/1.1" 200 -
+2026-09-14 15:20:06,185 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:06] "GET / HTTP/1.1" 200 -
+2026-09-14 15:20:06,722 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:06] "GET /favicon.ico HTTP/1.1" 404 -
+2026-09-14 15:20:06,722 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:06] "GET /favicon.ico HTTP/1.1" 404 -
+2026-09-14 15:20:08,702 - app - INFO - Cleared session, new thread_id: 3b41acd3-62a3-43a7-a249-503f9151e117
+2026-09-14 15:20:08,703 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:08] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:20:08,703 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:08] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:20:26,238 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: D:\My Stuff\GK is ko open karo vs code mein...
+2026-09-14 15:20:26,830 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:20:27,317 - tools.system.system - INFO - Executing command: code "D:\My Stuff\GK"
+2026-09-14 15:20:30,160 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:20:30,366 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:30] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:20:30,366 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:30] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:20:45,423 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: vs code mein terminal open karo...
+2026-09-14 15:20:45,818 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:20:46,599 - tools.mouse_keyboard.automation - INFO - Tool 'hotkey' executed successfully.
+2026-09-14 15:20:46,685 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:20:46,686 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 12.000000 seconds
+2026-09-14 15:20:59,215 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:20:59,362 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:59] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:20:59,362 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:20:59] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:21:14,729 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: ab waha per type karo git status...
+2026-09-14 15:21:15,635 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:21:16,010 - tools.mouse_keyboard.automation - INFO - Tool 'type_text' executed successfully.
+2026-09-14 15:21:16,238 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:21:16,239 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 15.000000 seconds
+2026-09-14 15:21:32,182 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:21:32,298 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:21:32] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:21:32,298 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:21:32] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:21:33,498 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: or enter karo...
+2026-09-14 15:21:33,727 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:21:33,728 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 19.000000 seconds
+2026-09-14 15:21:53,281 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:21:53,588 - tools.mouse_keyboard.automation - INFO - Tool 'press_key' executed successfully.
+2026-09-14 15:21:53,673 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:21:53,674 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 30.000000 seconds
+2026-09-14 15:22:09,184 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: kia aya hai waha per dekh kar batao muje?...
+2026-09-14 15:22:09,311 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:22:09,312 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+2026-09-14 15:22:13,181 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:22:13,570 - tools.utils - ERROR - Permission denied for path 'D:\My Stuff\GK': Access denied: 'D:\My Stuff\GK' is outside allowed directories.
+2026-09-14 15:22:13,570 - tools.utils - ERROR - Unexpected error in execute_system_command: Access denied: 'D:\My Stuff\GK' is outside allowed directories.
+2026-09-14 15:22:13,788 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:22:13,789 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 23.000000 seconds
+2026-09-14 15:22:23,777 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:22:23,778 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 11.000000 seconds
+2026-09-14 15:22:35,109 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:22:35,257 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:22:35] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:22:35,257 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:22:35] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:22:36,888 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:22:36,889 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 20.000000 seconds
+2026-09-14 15:22:57,285 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:22:57,566 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:22:57] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:22:57,566 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:22:57] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:25:03,227 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: waha per kitne folders hai?...
+2026-09-14 15:25:03,694 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:25:04,277 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:25:04] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:25:04,277 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:25:04] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:25:26,773 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: D:\My Stuff\GK> is location per jao or dehko kitne folder hai yah per?...
+2026-09-14 15:25:27,750 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:25:28,067 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:25:28] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:25:28,067 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:25:28] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:27:57,819 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: agentic_AI mein kitne folders hai?...
+2026-09-14 15:27:58,644 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:27:59,109 - tools.utils - INFO - Tool 'list_folder_files' executed successfully.
+2026-09-14 15:27:59,343 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:27:59,344 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 1.000000 seconds
+2026-09-14 15:28:00,745 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:28:00,960 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:28:00] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:28:00,960 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:28:00] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:28:31,940 - app - INFO - Streaming message for thread 3b41acd3-62a3-43a7-a249-503f9151e117: folder ko count karne ka liya tumne konsa tool use kiya hai ?...
+2026-09-14 15:28:32,316 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:28:32,633 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:28:32] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:28:32,633 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:28:32] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:33:26,291 - app - INFO - Logging configured.
+2026-09-14 15:33:26,292 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:33:26,792 - app - INFO - Agent initialized with 34 tools (provider=groq, model=openai/gpt-oss-120b)
+2026-09-14 15:33:26,793 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-14 15:33:26,801 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:33:26,801 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:33:26,801 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:33:26,801 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:33:29,165 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:33:29] "GET / HTTP/1.1" 200 -
+2026-09-14 15:33:29,165 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:33:29] "GET / HTTP/1.1" 200 -
+2026-09-14 15:33:30,780 - app - INFO - Cleared session, new thread_id: b5625cd1-04f4-4247-9c23-743e60958305
+2026-09-14 15:33:30,781 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:33:30] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:33:30,781 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:33:30] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:33:46,234 - app - INFO - Streaming message for thread b5625cd1-04f4-4247-9c23-743e60958305: D:\My Stuff\GK> is location per jao dehko kitne folders hai yah per?...
+2026-09-14 15:33:47,100 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:33:47,460 - tools.utils - INFO - Tool 'list_folder_files' executed successfully.
+2026-09-14 15:33:47,981 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:33:48,074 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:33:48] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:33:48,074 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:33:48] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:34:20,039 - app - INFO - Streaming message for thread b5625cd1-04f4-4247-9c23-743e60958305: is pure ko vs code mein open karo...
+2026-09-14 15:34:20,467 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:34:20,797 - tools.system.system - INFO - Executing command: code "D:/My Stuff/GK"
+2026-09-14 15:34:23,665 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:34:23,861 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:34:23] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:34:23,861 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:34:23] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:34:35,684 - app - INFO - Streaming message for thread b5625cd1-04f4-4247-9c23-743e60958305: dic.py ko run karo vs code ka terminal per?...
+2026-09-14 15:34:35,807 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:34:35,808 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 10.000000 seconds
+2026-09-14 15:34:46,298 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:34:46,629 - tools.system.system - INFO - Executing command: python "D:/My Stuff/GK/dic.py"
+2026-09-14 15:34:46,994 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:34:46,995 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 11.000000 seconds
+2026-09-14 15:34:58,896 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:34:59,473 - tools.utils - INFO - Tool 'create_file' executed successfully.
+2026-09-14 15:34:59,705 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:34:59,706 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 18.000000 seconds
+2026-09-14 15:35:18,027 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:35:18,391 - tools.utils - INFO - Tool 'read_file' executed successfully.
+2026-09-14 15:35:18,478 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:35:18,479 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 40.000000 seconds
+2026-09-14 15:35:58,981 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:35:58,982 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+2026-09-14 15:36:01,356 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:36:01,952 - tools.system.system - INFO - Executing command: python "D:/My Stuff/GK/dic.py"
+2026-09-14 15:36:02,264 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:36:02,266 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 43.000000 seconds
+2026-09-14 15:36:45,820 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:36:45,821 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+2026-09-14 15:36:48,142 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:36:48,591 - tools.utils - INFO - Tool 'read_file' executed successfully.
+2026-09-14 15:36:48,693 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:36:48,694 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 49.000000 seconds
+2026-09-14 15:37:14,901 - app - INFO - Cleared session, new thread_id: d985c6d2-0d5c-4e56-996d-0fe3345ad2a2
+2026-09-14 15:37:14,901 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:37:14] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:37:14,901 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:37:14] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:37:19,565 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:37:19] "GET / HTTP/1.1" 200 -
+2026-09-14 15:37:19,565 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:37:19] "GET / HTTP/1.1" 200 -
+2026-09-14 15:37:21,180 - app - INFO - Cleared session, new thread_id: 0bd49f39-d742-40d5-8c30-aa10765c8a7d
+2026-09-14 15:37:21,181 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:37:21] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:37:21,181 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:37:21] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:37:38,300 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:37:38,301 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+2026-09-14 15:37:41,275 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:37:42,445 - tools.system.system - INFO - Executing command: python dic.py
+2026-09-14 15:37:42,912 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:37:42,913 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 53.000000 seconds
+2026-09-14 15:37:53,443 - app - INFO - Streaming message for thread 0bd49f39-d742-40d5-8c30-aa10765c8a7d: D:\My Stuff\GK> is location per aik file hai dic.py isko run karo vs code ka terminal per?...
+2026-09-14 15:37:53,547 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:37:53,548 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 5.000000 seconds
+2026-09-14 15:37:59,075 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:38:00,050 - tools.system.system - INFO - Executing command: python "D:\My Stuff\GK\dic.py"
+2026-09-14 15:38:00,364 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:38:00,365 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 24.000000 seconds
+2026-09-14 15:38:24,504 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:38:24,505 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 4.000000 seconds
+2026-09-14 15:38:29,835 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:38:30,206 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:38:30] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:38:30,206 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:38:30] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:38:36,407 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2026-09-14 15:38:36,410 - app - ERROR - Error in /api/chat/stream: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-120b` in organization `org_01kqem7tgne3ybxashrs4qdwb7` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8079, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\app.py", line 196, in generate
+    for message_chunk, metadata in agent_app.stream(
+                                   ~~~~~~~~~~~~~~~~^
+        inputs, config=thread_config, stream_mode="messages"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 344, in tick
+    _panic_or_proceed(
+    ~~~~~~~~~~~~~~~~~^
+        futures.done.union(f for f, t in futures.items() if t is not None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        handled_futures=handled_futures,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 687, in _panic_or_proceed
+    raise exc
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1981, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_groq\chat_models.py", line 663, in _stream
+    for chunk in self.client.create(messages=message_dicts, **params):
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\groq\resources\chat\completions.py", line 461, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\groq\_base_client.py", line 1242, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\groq\_base_client.py", line 1044, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-120b` in organization `org_01kqem7tgne3ybxashrs4qdwb7` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8079, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+During task with name 'model' and id '4af24935-a0c0-8ec5-8997-aad4dd72c7cf'
+2026-09-14 15:38:36,523 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:38:36] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:38:36,523 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:38:36] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:39:04,677 - app - INFO - Streaming message for thread 0bd49f39-d742-40d5-8c30-aa10765c8a7d: phela terminal open karo oisa bad run karo file ko ok...
+2026-09-14 15:39:06,280 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:39:07,562 - tools.system.system - INFO - Executing command: code "D:\My Stuff\GK"
+2026-09-14 15:39:10,229 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:39:10,230 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2026-09-14 15:39:16,644 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:39:16,991 - tools.system.system - INFO - Executing command: python "D:\My Stuff\GK\dic.py"
+2026-09-14 15:39:17,304 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:39:17,305 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 12.000000 seconds
+2026-09-14 15:39:30,260 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:39:30,513 - tools.utils - INFO - Tool 'create_folder' executed successfully.
+2026-09-14 15:39:30,739 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:39:30,740 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 9.000000 seconds
+2026-09-14 15:39:40,734 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:39:41,124 - tools.utils - INFO - Tool 'write_file' executed successfully.
+2026-09-14 15:39:41,340 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:39:41,341 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 5.000000 seconds
+2026-09-14 15:39:46,445 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:39:46,446 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2026-09-14 15:39:53,391 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:39:53,869 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:39:53,870 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 10.000000 seconds
+2026-09-14 15:40:04,245 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-14 15:40:04,949 - tools.system.system - INFO - Executing command: python "D:\My Stuff\GK\dic.py"
+2026-09-14 15:40:05,241 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:40:05,242 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 36.000000 seconds
+2026-09-14 15:40:37,029 - app - INFO - Cleared session, new thread_id: 74979d7f-9786-4604-9fd3-e157df139497
+2026-09-14 15:40:37,030 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:37] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:40:37,030 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:37] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:40:37,989 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:37] "GET / HTTP/1.1" 200 -
+2026-09-14 15:40:37,989 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:37] "GET / HTTP/1.1" 200 -
+2026-09-14 15:40:39,785 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:39] "GET / HTTP/1.1" 200 -
+2026-09-14 15:40:39,785 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:39] "GET / HTTP/1.1" 200 -
+2026-09-14 15:40:41,028 - app - INFO - Cleared session, new thread_id: b5789926-826e-4e5a-ac80-409d9ca71cb7
+2026-09-14 15:40:41,029 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:41] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:40:41,029 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:41] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:40:41,365 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:40:41,366 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+2026-09-14 15:40:43,470 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-14 15:40:43,472 - app - ERROR - Error in /api/chat/stream: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqem7tgne3ybxashrs4qdwb7` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2535, Requested 6189. Please try again in 5.43s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\app.py", line 196, in generate
+    for message_chunk, metadata in agent_app.stream(
+                                   ~~~~~~~~~~~~~~~~^
+        inputs, config=thread_config, stream_mode="messages"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 344, in tick
+    _panic_or_proceed(
+    ~~~~~~~~~~~~~~~~~^
+        futures.done.union(f for f, t in futures.items() if t is not None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        handled_futures=handled_futures,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 687, in _panic_or_proceed
+    raise exc
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1981, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_groq\chat_models.py", line 663, in _stream
+    for chunk in self.client.create(messages=message_dicts, **params):
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\groq\resources\chat\completions.py", line 461, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\groq\_base_client.py", line 1242, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\groq\_base_client.py", line 1044, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqem7tgne3ybxashrs4qdwb7` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2535, Requested 6189. Please try again in 5.43s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+During task with name 'model' and id 'f09c85b4-ecd1-b1a2-d06b-ea4d1a0aa71e'
+2026-09-14 15:40:43,477 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:43] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:40:43,477 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:40:43] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:44:34,611 - app - INFO - Logging configured.
+2026-09-14 15:44:34,612 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:46:05,043 - app - INFO - Logging configured.
+2026-09-14 15:46:05,044 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:46:49,298 - app - INFO - Logging configured.
+2026-09-14 15:46:49,299 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:46:50,698 - app - INFO - Agent initialized with 34 tools (provider=gemini, model=Gemini 3.1 Flash Lite)
+2026-09-14 15:46:50,700 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-14 15:46:50,709 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:46:50,709 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:46:50,709 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:46:50,709 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:46:57,045 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:46:57] "GET / HTTP/1.1" 200 -
+2026-09-14 15:46:57,045 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:46:57] "GET / HTTP/1.1" 200 -
+2026-09-14 15:46:58,379 - app - INFO - Cleared session, new thread_id: 4121e32d-5f41-48c7-a58c-514cad0909be
+2026-09-14 15:46:58,380 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:46:58] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:46:58,380 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:46:58] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:47:43,507 - app - INFO - Streaming message for thread 4121e32d-5f41-48c7-a58c-514cad0909be: D:\My Stuff\GK> is location per jao isko vs code mein open karo or terminal per dic.py file ko run k...
+2026-09-14 15:47:44,035 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/Gemini%203.1%20Flash%20Lite:streamGenerateContent?alt=sse "HTTP/1.1 400 Bad Request"
+2026-09-14 15:47:44,037 - app - ERROR - Error in /api/chat/stream: Error calling model 'Gemini 3.1 Flash Lite' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\n', 'status': 'INVALID_ARGUMENT'}}
+Traceback (most recent call last):
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 363, in _classified_stream
+    yield from response
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\models.py", line 6404, in generate_content_stream
+    yield from self._generate_content_stream(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\models.py", line 4815, in _generate_content_stream
+    for response in self._api_client.request_streamed(
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        'post', path, request_dict, http_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\_api_client.py", line 1767, in request_streamed
+    session_response = self._request(http_request, http_options, stream=True)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\_api_client.py", line 1535, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\_api_client.py", line 1514, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\n', 'status': 'INVALID_ARGUMENT'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\app.py", line 196, in generate
+    for message_chunk, metadata in agent_app.stream(
+                                   ~~~~~~~~~~~~~~~~^
+        inputs, config=thread_config, stream_mode="messages"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 344, in tick
+    _panic_or_proceed(
+    ~~~~~~~~~~~~~~~~~^
+        futures.done.union(f for f, t in futures.items() if t is not None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        handled_futures=handled_futures,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 687, in _panic_or_proceed
+    raise exc
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 3578, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1981, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 4270, in _stream
+    for chunk in _classified_stream(response, request):
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 365, in _classified_stream
+    _handle_client_error(e, request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 326, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'Gemini 3.1 Flash Lite' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\n', 'status': 'INVALID_ARGUMENT'}}
+During task with name 'model' and id '4817a2ba-6541-bf26-b1a0-01eb819a3c1a'
+2026-09-14 15:47:44,057 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:47:44] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:47:44,057 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:47:44] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:48:29,033 - app - INFO - Streaming message for thread 4121e32d-5f41-48c7-a58c-514cad0909be: D:\My Stuff\GK> is location per jao isko vs code mein open karo or terminal per dic.py file ko run k...
+2026-09-14 15:48:29,428 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/Gemini%203.1%20Flash%20Lite:streamGenerateContent?alt=sse "HTTP/1.1 400 Bad Request"
+2026-09-14 15:48:29,431 - app - ERROR - Error in /api/chat/stream: Error calling model 'Gemini 3.1 Flash Lite' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\n', 'status': 'INVALID_ARGUMENT'}}
+Traceback (most recent call last):
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 363, in _classified_stream
+    yield from response
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\models.py", line 6404, in generate_content_stream
+    yield from self._generate_content_stream(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\models.py", line 4815, in _generate_content_stream
+    for response in self._api_client.request_streamed(
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        'post', path, request_dict, http_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\_api_client.py", line 1767, in request_streamed
+    session_response = self._request(http_request, http_options, stream=True)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\_api_client.py", line 1535, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\_api_client.py", line 1514, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\n', 'status': 'INVALID_ARGUMENT'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\app.py", line 196, in generate
+    for message_chunk, metadata in agent_app.stream(
+                                   ~~~~~~~~~~~~~~~~^
+        inputs, config=thread_config, stream_mode="messages"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 344, in tick
+    _panic_or_proceed(
+    ~~~~~~~~~~~~~~~~~^
+        futures.done.union(f for f, t in futures.items() if t is not None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        handled_futures=handled_futures,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_runner.py", line 687, in _panic_or_proceed
+    raise exc
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\DELL5420\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 3578, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1981, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 4270, in _stream
+    for chunk in _classified_stream(response, request):
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 365, in _classified_stream
+    _handle_client_error(e, request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\DELL5420\Desktop\python\Agentic_AI\env\Lib\site-packages\langchain_google_genai\chat_models.py", line 326, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'Gemini 3.1 Flash Lite' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\n', 'status': 'INVALID_ARGUMENT'}}
+During task with name 'model' and id 'cbb81a52-eef9-b673-40d4-c104ce0a50a3'
+2026-09-14 15:48:29,449 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:48:29] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:48:29,449 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:48:29] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:52:02,786 - app - INFO - Logging configured.
+2026-09-14 15:52:02,786 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:52:03,794 - app - INFO - Agent initialized with 34 tools (provider=gemini, model=gemini-3.1-flash-lite-preview)
+2026-09-14 15:52:03,796 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-14 15:52:03,804 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:52:03,804 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:52:03,804 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:52:03,804 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:52:09,412 - app - INFO - Cleared session, new thread_id: a10c44ac-1455-435c-92b3-87c01f30df3e
+2026-09-14 15:52:09,413 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:09] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:52:09,413 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:09] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:52:10,684 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:10] "GET / HTTP/1.1" 200 -
+2026-09-14 15:52:10,684 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:10] "GET / HTTP/1.1" 200 -
+2026-09-14 15:52:11,976 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:11] "GET / HTTP/1.1" 200 -
+2026-09-14 15:52:11,976 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:11] "GET / HTTP/1.1" 200 -
+2026-09-14 15:52:13,075 - app - INFO - Cleared session, new thread_id: 6d702161-e112-438a-97e2-43b087138738
+2026-09-14 15:52:13,075 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:13] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:52:13,075 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:13] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:52:14,871 - app - INFO - Streaming message for thread 6d702161-e112-438a-97e2-43b087138738: D:\My Stuff\GK> is location per jao isko vs code mein open karo or terminal per dic.py file ko run k...
+2026-09-14 15:52:16,052 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:52:16,089 - tools.system.system - INFO - Executing command: code "D:\My Stuff\GK"
+2026-09-14 15:52:19,521 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:52:19,527 - tools.system.system - INFO - Executing command: python "D:\My Stuff\GK\dic.py"
+2026-09-14 15:52:20,954 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:52:20,958 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:20] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:52:20,958 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:20] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:52:40,353 - app - INFO - Streaming message for thread 6d702161-e112-438a-97e2-43b087138738: terminal open karo ab...
+2026-09-14 15:52:41,815 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:52:43,217 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:52:43,219 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:43] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:52:43,219 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:52:43] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:52:55,514 - app - INFO - Streaming message for thread 6d702161-e112-438a-97e2-43b087138738: vs code mein terminal open karo ab?...
+2026-09-14 15:52:57,675 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:52:57,683 - tools.system.system - INFO - Executing command: code -n "D:\My Stuff\GK"
+2026-09-14 15:53:02,013 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:53:02,015 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:53:02] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:53:02,015 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:53:02] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:53:35,058 - app - INFO - Streaming message for thread 6d702161-e112-438a-97e2-43b087138738: kia matlab samaj nhe aya muje?...
+2026-09-14 15:53:37,279 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:53:37,281 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:53:37] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:53:37,281 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:53:37] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:57:52,961 - app - INFO - Logging configured.
+2026-09-14 15:57:52,962 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 15:57:53,974 - app - INFO - Agent initialized with 34 tools (provider=gemini, model=gemini-3.1-flash-lite-preview)
+2026-09-14 15:57:53,976 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-14 15:57:53,982 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:57:53,982 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 15:57:53,983 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:57:53,983 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 15:57:54,385 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:57:54] "GET / HTTP/1.1" 200 -
+2026-09-14 15:57:54,385 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:57:54] "GET / HTTP/1.1" 200 -
+2026-09-14 15:57:55,643 - app - INFO - Cleared session, new thread_id: dc3edc3f-95b2-47d5-b4af-04afef83dec2
+2026-09-14 15:57:55,644 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:57:55] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:57:55,644 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:57:55] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:58:41,588 - app - INFO - Cleared session, new thread_id: 962247b3-2ee9-49a9-a668-92fa1aa8da51
+2026-09-14 15:58:41,589 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:41] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:58:41,589 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:41] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:58:43,034 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:43] "GET / HTTP/1.1" 200 -
+2026-09-14 15:58:43,034 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:43] "GET / HTTP/1.1" 200 -
+2026-09-14 15:58:44,466 - app - INFO - Cleared session, new thread_id: 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a
+2026-09-14 15:58:44,467 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:44] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:58:44,467 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:44] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 15:58:51,344 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: D:\My Stuff\GK> isko open karo vs code mein...
+2026-09-14 15:58:52,875 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:58:52,898 - tools.system.system - INFO - Executing command: code "D:\My Stuff\GK"
+2026-09-14 15:58:56,295 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:58:56,297 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:56] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:58:56,297 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:58:56] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:59:08,349 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: ab terminal open karo vs code mein...
+2026-09-14 15:59:10,278 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:59:10,389 - tools.mouse_keyboard.automation - INFO - Tool 'hotkey' executed successfully.
+2026-09-14 15:59:11,997 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:59:12,000 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:59:12] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:59:12,000 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:59:12] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:59:22,837 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: ab dic.py file ko run karo...
+2026-09-14 15:59:23,837 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:59:23,849 - tools.utils - INFO - Tool 'list_folder_files' executed successfully.
+2026-09-14 15:59:25,085 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:59:25,098 - tools.system.system - INFO - Executing command: python "D:\My Stuff\GK\dic.py"
+2026-09-14 15:59:26,413 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:59:26,416 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:59:26] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:59:26,416 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 15:59:26] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 15:59:56,634 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: dic.md file hai ge English folder mein...
+2026-09-14 15:59:58,520 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 15:59:58,536 - tools.utils - INFO - Tool 'list_folder_files' executed successfully.
+2026-09-14 16:00:00,048 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:00:00,051 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:00:00] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:00:00,051 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:00:00] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:00:00,452 - tools.system.system - INFO - Executing command: python dic.py
+2026-09-14 16:00:02,437 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:00:26,882 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: py dic.md likho...
+2026-09-14 16:00:29,167 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:00:31,160 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:00:31,163 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:00:31] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:00:31,163 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:00:31] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:00:33,660 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:01:03,337 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: ha...
+2026-09-14 16:01:04,647 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:01:04,655 - tools.utils - INFO - Tool 'read_file' executed successfully.
+2026-09-14 16:01:05,665 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:01:05,668 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:01:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:01:05,668 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:01:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:01:51,961 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: D:\My Stuff\GK> is location per jao vs code mein termial open karo or py dic.md ko run karo ok....
+2026-09-14 16:01:53,142 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:01:53,156 - tools.system.system - INFO - Executing command: code .
+2026-09-14 16:01:56,553 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:01:56,670 - tools.mouse_keyboard.automation - INFO - Tool 'hotkey' executed successfully.
+2026-09-14 16:01:57,654 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:01:57,657 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:01:57] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:01:57,657 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:01:57] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:02:18,490 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: dic.py sorry...
+2026-09-14 16:02:25,731 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:02:25,745 - tools.utils - INFO - Tool 'write_file' executed successfully.
+2026-09-14 16:02:26,769 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:02:26,771 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:02:26] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:02:26,771 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:02:26] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:02:57,457 - app - INFO - Streaming message for thread 2c0747ad-d17b-4d5f-a8f7-6741cc2ed54a: py dic.py yeah run karo vs code ka terminal per?...
+2026-09-14 16:02:58,726 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:02:58,743 - tools.system.system - INFO - Executing command: python dic.py
+2026-09-14 16:02:59,958 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:02:59,960 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:02:59] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:02:59,960 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:02:59] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:04:44,651 - app - INFO - Cleared session, new thread_id: 17ee4a7c-6e8c-41ab-9b69-4a3d877f88ff
+2026-09-14 16:04:44,652 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:04:44] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:04:44,652 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:04:44] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:04:45,712 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:04:45] "GET / HTTP/1.1" 200 -
+2026-09-14 16:04:45,712 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:04:45] "GET / HTTP/1.1" 200 -
+2026-09-14 16:04:47,050 - app - INFO - Cleared session, new thread_id: 52977b4d-9fe2-4550-a01f-7f8b8b53b8ee
+2026-09-14 16:04:47,051 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:04:47] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:04:47,051 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:04:47] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:05:45,422 - app - INFO - Streaming message for thread 52977b4d-9fe2-4550-a01f-7f8b8b53b8ee: D:\My Stuff> is location per gk ka naam se folder hoga oisa open karo vs code mein oisme aik file ho...
+2026-09-14 16:05:46,616 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:05:46,627 - tools.system.system - INFO - Executing command: dir "D:\My Stuff\gk"
+2026-09-14 16:05:47,959 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:05:47,968 - tools.system.system - INFO - Executing command: code "D:\My Stuff\gk"
+2026-09-14 16:05:51,209 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:05:51,218 - tools.system.system - INFO - Executing command: python "D:\My Stuff\gk\dic.py"
+2026-09-14 16:05:52,384 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:05:52,386 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:05:52] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:05:52,386 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:05:52] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:06:43,690 - app - INFO - Streaming message for thread 52977b4d-9fe2-4550-a01f-7f8b8b53b8ee: phela tum terminal open karo...
+2026-09-14 16:06:45,353 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:06:46,499 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:06:46,501 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:06:46] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:06:46,501 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:06:46] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:11:05,390 - app - INFO - Logging configured.
+2026-09-14 16:11:05,390 - app - INFO - Starting Agentic AI Web Server...
+2026-09-14 16:11:06,378 - app - INFO - Agent initialized with 34 tools (provider=gemini, model=gemini-3.1-flash-lite-preview)
+2026-09-14 16:11:06,381 - app - INFO - Starting Flask server on 127.0.0.1:5000 (debug=False)
+2026-09-14 16:11:06,389 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 16:11:06,389 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-09-14 16:11:06,389 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 16:11:06,389 - werkzeug - INFO - Press CTRL+C to quit
+2026-09-14 16:11:10,708 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:11:10] "GET / HTTP/1.1" 200 -
+2026-09-14 16:11:10,708 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:11:10] "GET / HTTP/1.1" 200 -
+2026-09-14 16:11:12,169 - app - INFO - Cleared session, new thread_id: 7976b347-e3cf-47d1-91a6-754a0a6c9179
+2026-09-14 16:11:12,170 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:11:12] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:11:12,170 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:11:12] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:11:44,469 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: D:\My Stuff> yeah per aik folder hoga gk ka naam se oisa vs code mein open karo...
+2026-09-14 16:11:46,371 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:11:46,389 - tools.utils - INFO - Tool 'list_folder_files' executed successfully.
+2026-09-14 16:11:48,585 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:11:48,589 - tools.system.system - INFO - Executing command: code "D:\My Stuff\gk"
+2026-09-14 16:11:52,140 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:11:52,145 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:11:52] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:11:52,145 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:11:52] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:12:03,536 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: ab oisme terminal open karo...
+2026-09-14 16:12:04,577 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:04,686 - tools.mouse_keyboard.automation - INFO - Tool 'hotkey' executed successfully.
+2026-09-14 16:12:05,691 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:05,694 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:12:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:12:05,694 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:12:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:12:20,108 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: ab py dic.py file ko run karo...
+2026-09-14 16:12:22,821 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:22,938 - tools.mouse_keyboard.automation - INFO - Tool 'type_text' executed successfully.
+2026-09-14 16:12:23,763 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:23,885 - tools.mouse_keyboard.automation - INFO - Tool 'press_key' executed successfully.
+2026-09-14 16:12:24,675 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:24,677 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:12:24] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:12:24,677 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:12:24] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:12:32,669 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: 2 likh kar enter karo...
+2026-09-14 16:12:34,792 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:34,908 - tools.mouse_keyboard.automation - INFO - Tool 'type_text' executed successfully.
+2026-09-14 16:12:37,745 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:37,859 - tools.mouse_keyboard.automation - INFO - Tool 'press_key' executed successfully.
+2026-09-14 16:12:38,665 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:12:38,667 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:12:38] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:12:38,667 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:12:38] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:13:02,427 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: ab jo sawal aya hai oisa solve karke type karo or enter karo...
+2026-09-14 16:13:03,542 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:13:03,554 - tools.mouse_keyboard.automation - ERROR - Tool 'screenshot' - unexpected error: PyAutoGUI was unable to import pyscreeze. (This is likely because you're running a version of Python that Pillow (which pyscreeze depends on) doesn't support currently.) Please install this module to enable the function you tried to call.
+2026-09-14 16:13:05,874 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:13:05,876 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:13:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:13:05,876 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:13:05] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:13:32,472 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: Jab koi banda lafzon mein kuch aur kahe, lekin us ka asal matlab bilkul opposite ho taake kisi ka ma...
+2026-09-14 16:13:35,033 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:13:35,036 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:13:35] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:13:35,036 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:13:35] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:13:50,778 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: type karke enter karo...
+2026-09-14 16:13:53,632 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:13:53,740 - tools.mouse_keyboard.automation - INFO - Tool 'type_text' executed successfully.
+2026-09-14 16:13:57,172 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:13:57,283 - tools.mouse_keyboard.automation - INFO - Tool 'press_key' executed successfully.
+2026-09-14 16:14:00,195 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:14:00,198 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:14:00] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:14:00,198 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:14:00] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:14:14,301 - app - INFO - Streaming message for thread 7976b347-e3cf-47d1-91a6-754a0a6c9179: Chakkar aana ya sir halka-halka lagna. iska answer bhe likhkar enter karo...
+2026-09-14 16:14:15,395 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:14:15,522 - tools.mouse_keyboard.automation - INFO - Tool 'type_text' executed successfully.
+2026-09-14 16:14:17,249 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:14:17,362 - tools.mouse_keyboard.automation - INFO - Tool 'press_key' executed successfully.
+2026-09-14 16:14:20,271 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-09-14 16:14:20,274 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:14:20] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:14:20,274 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:14:20] "POST /api/chat/stream HTTP/1.1" 200 -
+2026-09-14 16:14:30,930 - app - INFO - Cleared session, new thread_id: 861df7ef-bcf5-4a8d-afaa-c9da3464534c
+2026-09-14 16:14:30,931 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:14:30] "POST /api/clear HTTP/1.1" 200 -
+2026-09-14 16:14:30,931 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2026 16:14:30] "POST /api/clear HTTP/1.1" 200 -

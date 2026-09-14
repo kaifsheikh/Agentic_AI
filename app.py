@@ -101,6 +101,26 @@ def validate_thread_id(thread_id: Optional[str]) -> str:
 
     return thread_id
 
+def _extract_text(content) -> str:
+    """
+    Normalize LangChain/Gemini content into a plain string.
+    Gemini sometimes returns content as a list of dicts like:
+        [{"type": "text", "text": "Hello"}, ...]
+    """
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for item in content:
+            if isinstance(item, dict):
+                parts.append(item.get("text", ""))
+            elif isinstance(item, str):
+                parts.append(item)
+        return "".join(parts)
+    if content is None:
+        return ""
+    return str(content)
+
 # ============================================================
 # Routes
 # ============================================================
@@ -145,7 +165,7 @@ def chat():
 
         app.logger.info(f"Processing message for thread {thread_id}: {user_message[:100]}...")
         response = agent_app.invoke(inputs, config=config)
-        final_message = response["messages"][-1].content
+        final_message = _extract_text(response["messages"][-1].content)
 
         return jsonify({
             "status": "success",
@@ -196,7 +216,7 @@ def chat_stream():
             for message_chunk, metadata in agent_app.stream(
                 inputs, config=thread_config, stream_mode="messages"
             ):
-                content = getattr(message_chunk, "content", "")
+                content = _extract_text(getattr(message_chunk, "content", ""))
                 if content and metadata.get("langgraph_node") != "tools":
                     yield f"data: {json.dumps({'token': content}, ensure_ascii=False)}\n\n"
             yield f"data: {json.dumps({'done': True, 'thread_id': thread_id})}\n\n"

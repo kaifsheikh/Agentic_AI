@@ -12,28 +12,35 @@ from tools.utils import _resolve_path, handle_command_errors
 logger = logging.getLogger(__name__)
 
 # ============================================================
-# Default Whitelist (Safe / read-only / dev commands only)
-#
-# FIX: destructive commands (del, rmdir, kill, taskkill), network
-# commands that can exfiltrate data (curl, wget, ssh, scp) and
-# "start" (can launch arbitrary programs/URLs) were removed.
-# File deletion/movement should go through the dedicated,
-# sandboxed file_ops tools instead of a raw shell.
+# Default Whitelist (expanded — dev + launch + file commands)
 # ============================================================
 DEFAULT_WHITELIST = [
     # System info & navigation (read-only)
     "ipconfig", "dir", "cd", "echo", "notepad", "calc", "mspaint",
-    "tasklist", "systeminfo", "hostname",
+    "tasklist", "systeminfo", "hostname", "ver", "set",
     "ping", "tracert", "nslookup", "get-date", "get-process",
     "tree", "whoami", "where", "path", "type", "netstat", "ps",
+    "find", "findstr", "sort", "more", "cls", "clear",
+
     # Development tools
-    "code", "python", "node", "npm", "pip", "git", "activate", "call",
+    "code", "python", "python3", "py", "node", "npm", "npx",
+    "pip", "pip3", "git", "activate", "call", "venv",
+    "pytest", "flake8", "black", "ruff",
+
+    # Launch programs / open paths
+    "start", "explorer", "cmd", "powershell", "pwsh",
+    "open", "xdg-open",   # Linux/Mac equivalents
+
+    # File/folder management (non-destructive)
+    "mkdir", "md", "copy", "xcopy", "robocopy",
+    "move", "ren", "rename", "touch", "cat", "head", "tail",
+    "wc", "ls", "pwd", "stat", "file",
 ]
 
 # Characters/sequences that would let a "whitelisted" first command chain
 # into an arbitrary, non-whitelisted second command when the raw string
-# is handed to a shell (PowerShell/bash). Blocking these closes the
-# whitelist-bypass hole.
+# is handed to a shell. Blocking these closes the whitelist-bypass hole.
+# Set ALLOW_CHAINING=1 in .env to disable this check (NOT recommended).
 _SHELL_METACHARACTERS = re.compile(r"[;&|`]|\$\(|<\(|>\(|\n|\r")
 
 
@@ -43,6 +50,22 @@ def _get_custom_whitelist() -> List[str]:
     if custom:
         return [cmd.strip().lower() for cmd in custom.split(",") if cmd.strip()]
     return []
+
+
+def _is_whitelist_disabled() -> bool:
+    """
+    If ALLOW_ALL_COMMANDS=1 (or true/yes) is set in .env, the whitelist
+    check is skipped entirely — every command is allowed.
+    Use with caution!
+    """
+    val = os.getenv("ALLOW_ALL_COMMANDS", "").strip().lower()
+    return val in ("1", "true", "yes", "on")
+
+
+def _is_chaining_allowed() -> bool:
+    """If ALLOW_CHAINING=1 in .env, shell metacharacters are permitted."""
+    val = os.getenv("ALLOW_CHAINING", "").strip().lower()
+    return val in ("1", "true", "yes", "on")
 
 
 def _get_whitelist() -> List[str]:
@@ -61,14 +84,14 @@ def execute_system_command(
     working_dir: Optional[str] = None
 ) -> dict:
     """
-    Execute a single whitelisted command using the appropriate shell
+    Execute a single shell command using the appropriate shell
     (PowerShell on Windows, bash on Unix).
 
     Parameters:
     - command: A single command (e.g., "dir", "python --version", "pip list").
-      Command chaining/piping (";", "|", "&", "`", "$(...)") is NOT allowed.
+      Command chaining/piping is NOT allowed by default.
     - timeout: Maximum execution time in seconds (default: 30, max: 300).
-    - working_dir: Optional directory where command should run. If relative, resolved against home.
+    - working_dir: Optional directory where command should run.
 
     Returns:
     A dictionary with status, output (stdout), error (stderr) if any.
@@ -78,12 +101,8 @@ def execute_system_command(
         timeout = 30
     timeout = min(timeout, 300)
 
-    # SECURITY FIX: reject chained/piped commands outright. Previously only
-    # the first token was checked against the whitelist, but the FULL raw
-    # string was passed to the shell — so "dir; Remove-Item -Recurse C:\"
-    # would pass the check on "dir" and then execute the destructive part
-    # anyway. Blocking these characters closes that bypass.
-    if _SHELL_METACHARACTERS.search(command):
+    # ---- Shell metacharacter check (can be disabled via .env) ----
+    if not _is_chaining_allowed() and _SHELL_METACHARACTERS.search(command):
         return {
             "status": "error",
             "error": "Command chaining/piping is not allowed (found one of ; & | ` $( ).",
@@ -107,13 +126,20 @@ def execute_system_command(
         }
 
     base_command = parts[0].lower()
-    whitelist = _get_whitelist()
-    if base_command not in whitelist:
-        return {
-            "status": "error",
-            "error": f"Command '{base_command}' is not allowed. Allowed commands: {', '.join(whitelist)}",
-            "error_type": "not_allowed"
-        }
+
+    # ---- Whitelist check (can be disabled via .env) ----
+    if not _is_whitelist_disabled():
+        whitelist = _get_whitelist()
+        if base_command not in whitelist:
+            return {
+                "status": "error",
+                "error": (
+                    f"Command '{base_command}' is not allowed. "
+                    f"Allowed commands: {', '.join(whitelist)}. "
+                    f"To allow all commands, set ALLOW_ALL_COMMANDS=1 in .env."
+                ),
+                "error_type": "not_allowed"
+            }
 
     system = platform.system().lower()
     if system == "windows":

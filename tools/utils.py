@@ -10,48 +10,19 @@ from typing import Optional, List, Union
 logger = logging.getLogger(__name__)
 
 # ============================================================
-# Path Resolution with Security (single source of truth —
-# file_ops.py and system.py both import from here now, instead
-# of each keeping their own copy of this logic)
+# Path Resolution (restrictions removed — any path allowed)
 # ============================================================
-
-def _get_allowed_roots() -> List[str]:
-    """
-    Returns list of directories where file operations are permitted.
-    Default: Home, Desktop, Documents, Downloads.
-    Additional roots can be added via environment variable ALLOWED_ROOTS (comma-separated).
-    """
-    home = Path.home()
-    default_roots = [
-        str(home),
-        str(home / "Desktop"),
-        str(home / "Documents"),
-        str(home / "Downloads"),
-    ]
-    custom = os.getenv("ALLOWED_ROOTS", "")
-    if custom:
-        for part in custom.split(","):
-            part = part.strip()
-            if part:
-                p = Path(part).expanduser()
-                if not p.is_absolute():
-                    p = home / p
-                default_roots.append(str(p.resolve()))
-    return default_roots
-
 
 def _resolve_path(path_str: str, must_exist: bool = False) -> Path:
     """
-    Resolve a path string to an absolute Path object with security checks.
+    Resolve a path string to an absolute Path object.
 
     - Expands ~ to user home.
     - If relative, assumes relative to user home directory.
     - Resolves symlinks and '..' to get real path.
-    - Checks that the resolved path is within allowed roots.
     - Optionally checks that the path exists (if must_exist=True).
 
     Raises:
-        PermissionError: If path is outside allowed roots.
         FileNotFoundError: If must_exist=True and path does not exist.
     """
     try:
@@ -61,19 +32,11 @@ def _resolve_path(path_str: str, must_exist: bool = False) -> Path:
 
         target = p.resolve()
 
-        allowed_roots = _get_allowed_roots()
-        target_str = str(target)
-        if not any(target_str == root or target_str.startswith(root + os.sep) for root in allowed_roots):
-            raise PermissionError(f"Access denied: '{target}' is outside allowed directories.")
-
         if must_exist and not target.exists():
             raise FileNotFoundError(f"Path not found: {target}")
 
         logger.debug(f"Resolved path: {path_str} -> {target}")
         return target
-    except PermissionError as e:
-        logger.error(f"Permission denied for path '{path_str}': {e}")
-        raise
     except FileNotFoundError as e:
         logger.warning(f"Path not found: {e}")
         raise
